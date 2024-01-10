@@ -1,0 +1,25 @@
+{
+    "inputs": [
+        [
+            "rooms",
+            "101"
+        ],
+        [
+            "rooms",
+            "102"
+        ],
+        [
+            "rooms",
+            "103"
+        ]
+    ],
+    "query": [
+        {
+            "map": {
+                "language": "javascript",
+                "source":
+                    "function(v) {\n\t /* Достать данные из объекта Riak и разобрать их как JSON */\n\t var parsed_data = JSON.parse(v.values[0].data);\n\t var data = {};\n\t/ * Словарь вместимостей с ключом `тип комнаты` */\n\t data[parsed_data.style] = parsed_data.capacity;\n\t return [data];\n}"
+            }
+        }
+    ]
+}
